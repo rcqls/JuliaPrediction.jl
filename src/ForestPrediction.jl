@@ -4,7 +4,7 @@ function Forest(X,pred,target,n = 5)
     MatX = Matrix{Float64}(X)
     Vecty = string.(target[:,1])
     
-    train_index = functions.perclass_splits(Vecty, 0.7)
+    train_index = perclass_splits(Vecty, 0.7)
 
     test_index = setdiff(1:length(Vecty), train_index)
 
@@ -31,7 +31,7 @@ end
 
 function Tree_Process(data, indiv, n=5)
     t0 = time()
-    process = Encoder.EncodeData(data, indiv)
+    process = EncodeData(data, indiv)
     res_predict = Forest(process[1], process[2], process[3], n)
     println(time() - t0)
     return res_predict

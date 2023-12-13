@@ -1,4 +1,8 @@
 module JuliaPrediction
+using DataFrames
+using MLJ
+using DecisionTree
+using Random
 
 export greet_your_package_name
 export perclass_splits
